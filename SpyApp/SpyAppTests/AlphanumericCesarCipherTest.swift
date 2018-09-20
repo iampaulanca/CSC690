@@ -23,7 +23,6 @@ class AlphanumericCesarCipherTests: XCTestCase {
         let cipher = AlphanumericCesarCipher()
         let plainttext = "a"
         let result = cipher.encode(plainttext, secret: "0")
-        
         XCTAssertEqual(result, "A")
         
     }
@@ -31,9 +30,19 @@ class AlphanumericCesarCipherTests: XCTestCase {
         let cipher = AlphanumericCesarCipher()
         let plainttext = "9"
         let result = cipher.encode(plainttext, secret: "1")
-        
         XCTAssertEqual(result, "A")
-        
+    }
+    func test_encodeWillBeWithin36CharLimit(){
+        let cipher = AlphanumericCesarCipher()
+        let plaintext = "a"
+        let result = cipher.encode(plaintext, secret: "36")
+        XCTAssertEqual(result, "A")
+    }
+    func test_decrpytWillBeWithin36CharLimit(){
+        let cipher = AlphanumericCesarCipher()
+        let plaintext = "a"
+        let result = cipher.decrypt(plaintext, secret: "36")
+        XCTAssertEqual(result, "A")
     }
     
 }

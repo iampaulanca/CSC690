@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		78500A2B215465E100906849 /* AtbashCipherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78500A2A215465E100906849 /* AtbashCipherTests.swift */; };
+		78500A2D215467E700906849 /* ReverseCipherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78500A2C215467E700906849 /* ReverseCipherTests.swift */; };
 		785FCA2221540205003A0F0E /* ReverseCipher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785FCA2121540205003A0F0E /* ReverseCipher.swift */; };
 		785FCA242154028D003A0F0E /* AtbashCipher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785FCA232154028D003A0F0E /* AtbashCipher.swift */; };
 		785FCA26215408E6003A0F0E /* Handy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785FCA25215408E6003A0F0E /* Handy.swift */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		78500A2A215465E100906849 /* AtbashCipherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtbashCipherTests.swift; sourceTree = "<group>"; };
+		78500A2C215467E700906849 /* ReverseCipherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReverseCipherTests.swift; sourceTree = "<group>"; };
 		785FCA2121540205003A0F0E /* ReverseCipher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReverseCipher.swift; sourceTree = "<group>"; };
 		785FCA232154028D003A0F0E /* AtbashCipher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtbashCipher.swift; sourceTree = "<group>"; };
 		785FCA25215408E6003A0F0E /* Handy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Handy.swift; sourceTree = "<group>"; };
@@ -118,6 +122,8 @@
 				970E4DE92138EC8700BA3EE9 /* SpyAppTests.swift */,
 				78D79AED21544FBB00D42A71 /* AlphanumericCesarCipherTest.swift */,
 				78D79AEB21544C9A00D42A71 /* CesarCipherTests.swift */,
+				78500A2A215465E100906849 /* AtbashCipherTests.swift */,
+				78500A2C215467E700906849 /* ReverseCipherTests.swift */,
 				970E4DEB2138EC8700BA3EE9 /* Info.plist */,
 			);
 			path = SpyAppTests;
@@ -241,8 +247,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				970E4DEA2138EC8700BA3EE9 /* SpyAppTests.swift in Sources */,
+				78500A2D215467E700906849 /* ReverseCipherTests.swift in Sources */,
 				78D79AEC21544C9A00D42A71 /* CesarCipherTests.swift in Sources */,
 				78D79AEE21544FBB00D42A71 /* AlphanumericCesarCipherTest.swift in Sources */,
+				78500A2B215465E100906849 /* AtbashCipherTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

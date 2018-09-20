@@ -1,2 +1,2 @@
-# CSC690
-Swift/IOS
+# CSC690 - Swift/IOS Homework
+
