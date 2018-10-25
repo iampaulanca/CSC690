@@ -185,7 +185,6 @@
                         <constraints>
                             <constraint firstItem="ceY-sX-XMb" firstAttribute="top" secondItem="Ec1-B1-ADV" secondAttribute="bottom" constant="30" id="EJB-Zs-52e"/>
                             <constraint firstItem="pDI-dt-fj0" firstAttribute="trailing" secondItem="Ec1-B1-ADV" secondAttribute="trailing" constant="16" id="isr-nU-pxe"/>
-                            <constraint firstItem="Ec1-B1-ADV" firstAttribute="centerX" secondItem="xkK-rf-gU7" secondAttribute="centerX" id="mrf-Av-wXb"/>
                             <constraint firstItem="pDI-dt-fj0" firstAttribute="trailing" secondItem="ceY-sX-XMb" secondAttribute="trailing" constant="16" id="oyg-Wg-dfN"/>
                             <constraint firstItem="Ec1-B1-ADV" firstAttribute="centerY" secondItem="xkK-rf-gU7" secondAttribute="centerY" id="qje-Fn-s31"/>
                             <constraint firstItem="Ec1-B1-ADV" firstAttribute="leading" secondItem="pDI-dt-fj0" secondAttribute="leading" constant="16" id="qzQ-hv-Vuz"/>

@@ -30,18 +30,18 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     //Show all task
     @IBAction func allTaskActionButton(_ sender: Any) {
+        //fetch all tasks
         viewDidLoad()
         tableView.reloadData()
     }
     
     //Show all completed tasks
     @IBAction func completedActionButton(_ sender: Any) {
-        temp = tasks
-        if !hasSameTasks(tasks1: temp, tasks2: completedTasks){
-            completedTasks = findAllCompleted(tasks: tasks)
-            tasks = completedTasks
-            tableView.reloadData()
-        }
+        
+        completedTasks = findAllCompleted(tasks: tasks)
+        tasks = completedTasks
+        tableView.reloadData()
+
     }
     
     //UITableView object
@@ -55,6 +55,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     //Populate rows
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath) as! TaskCell
+        cell.selectionStyle = .none //disable highlighting
         cell.taskNameLabel.text = tasks[indexPath.row].name
         if tasks[indexPath.row].checked {
             cell.checkBoxOutlet.borderColor = UIColor.black
@@ -104,6 +105,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         }
         
         let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
         alert.addAction(action)
         alert.addAction(actionCancel)
         present(alert, animated: true, completion: nil)
@@ -126,8 +128,9 @@ extension ViewController : AddTask {
 extension ViewController : ChangeButton {
     func changeButton(checkBox: Bool, index: Int) {
         tasks[index].checked = checkBox
-        PersistenceService.saveContext()
+       
         tableView.reloadData()
+         PersistenceService.saveContext()
     }
 }
 
