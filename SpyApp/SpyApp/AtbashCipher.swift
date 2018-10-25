@@ -73,8 +73,6 @@ struct AtbashCipher: Cipher {
     
     func getCharacter(unicode: UInt32) -> UInt32{
         
-      
-        
         var dictionary: [UInt32: UInt32] = [:]
         for i in 0...25 {
             dictionary["A".unicodeScalars.first!.value + UInt32(i)] = "Z".unicodeScalars.first!.value - UInt32(i)
