@@ -92,6 +92,23 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         tableView.reloadData()
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       
+        let alert = UIAlertController(title: "Edit", message: nil, preferredStyle: .alert)
+        alert.addTextField { (textfield) in textfield.placeholder = self.tasks[indexPath.row].name}
+        
+        let action = UIAlertAction(title: "Edit", style: .default){ (_) in
+            self.tasks[indexPath.row].name = alert.textFields!.first!.text!
+            tableView.reloadData()
+            PersistenceService.saveContext()
+        }
+        
+        let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(action)
+        alert.addAction(actionCancel)
+        present(alert, animated: true, completion: nil)
+    }
+    
 }
 
 //Adding a task. Protocol found in AddTaskController
