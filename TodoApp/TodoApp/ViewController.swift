@@ -36,8 +36,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     //Show all completed tasks
     @IBAction func completedActionButton(_ sender: Any) {
-        if !hasSameTasks(tasks1: tasks, tasks2: completedTasks){
-            temp = tasks
+        temp = tasks
+        if !hasSameTasks(tasks1: temp, tasks2: completedTasks){
             completedTasks = findAllCompleted(tasks: tasks)
             tasks = completedTasks
             tableView.reloadData()
