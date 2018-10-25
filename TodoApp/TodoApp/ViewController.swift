@@ -30,7 +30,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     //Show all task
     @IBAction func allTaskActionButton(_ sender: Any) {
-        tasks = temp
+        viewDidLoad()
         tableView.reloadData()
     }
     
@@ -81,9 +81,20 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         vc.delagate = self
     }
     
+    //Delete tasks
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.delete {
+            //Must delete
+            PersistenceService.context.delete(tasks[indexPath.row])
+            tasks.remove(at: indexPath.row)
+        }
+        PersistenceService.saveContext()
+        tableView.reloadData()
+    }
+    
 }
 
-//Protocol found in AddTaskController
+//Adding a task. Protocol found in AddTaskController
 extension ViewController : AddTask {
     func addTask(name: String) {
         let task = Task(context: PersistenceService.context)
@@ -94,20 +105,22 @@ extension ViewController : AddTask {
     }
 }
 
-//Protocol found in TaskCell
+//Changing completed status or "checkBox". Protocol found in TaskCell
 extension ViewController : ChangeButton {
     func changeButton(checkBox: Bool, index: Int) {
         tasks[index].checked = checkBox
-        print(tasks[index].name! , " is " , tasks[index].checked)
+        PersistenceService.saveContext()
         tableView.reloadData()
     }
 }
 
 //Find task by name. Helper method
 func findTask(tasks: [Task], name: String) -> Int{
-    for i in 0...tasks.count-1 {
-        if tasks[i].name == name {
-            return i
+    if tasks.count > 0 {
+        for i in 0...tasks.count-1 {
+            if tasks[i].name == name {
+                return i
+            }
         }
     }
     return -1
@@ -116,9 +129,11 @@ func findTask(tasks: [Task], name: String) -> Int{
 //Find all completed tasks. Used in completedActionButton
 func findAllCompleted(tasks: [Task]) -> [Task] {
     var temp : [Task] = []
-    for i in 0...tasks.count-1 {
-        if tasks[i].checked == true {
-            temp.append(tasks[i])
+    if tasks.count > 0 {
+        for i in 0...tasks.count-1 {
+            if tasks[i].checked == true {
+                temp.append(tasks[i])
+            }
         }
     }
     return temp
@@ -148,7 +163,7 @@ func hasSameTasks(tasks1: [Task], tasks2: [Task]) -> Bool{
 }
 
 
-//For easy editing to button-borders and button-corners in storyboard 
+//For easy editing to button-borders and button-corners in storyboard
 @IBDesignable extension UIButton {
     
     @IBInspectable var borderWidth: CGFloat {

@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,9 +19,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HhZ-PV-dzE">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HhZ-PV-dzE">
+                                <rect key="frame" x="0.0" y="64" width="375" height="571"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="taskCell" id="EfH-Mt-aQp" customClass="TaskCell" customModule="TodoApp" customModuleProvider="target">
@@ -80,23 +78,41 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="er0-nX-3N1"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="35R-IE-Vom">
+                                <rect key="frame" x="0.0" y="635" width="375" height="32"/>
+                                <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="YiK-H6-FFM"/>
+                                </constraints>
+                                <state key="normal" title="Completed">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="completedActionButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aWl-dq-k4y"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="35R-IE-Vom" secondAttribute="trailing" id="2Jb-Rg-jVG"/>
+                            <constraint firstItem="35R-IE-Vom" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="316-G4-3E0"/>
+                            <constraint firstItem="HhZ-PV-dzE" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="7Et-uM-N8h"/>
+                            <constraint firstItem="35R-IE-Vom" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Hpi-Tc-ga3"/>
+                            <constraint firstItem="HhZ-PV-dzE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="WWL-dc-LXx"/>
+                            <constraint firstItem="35R-IE-Vom" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="WWx-EX-cPs"/>
+                            <constraint firstItem="HhZ-PV-dzE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dUO-oW-PTp"/>
+                            <constraint firstItem="35R-IE-Vom" firstAttribute="top" secondItem="HhZ-PV-dzE" secondAttribute="bottom" id="mCQ-aB-ODY"/>
+                            <constraint firstItem="35R-IE-Vom" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ncH-dS-VXa"/>
+                            <constraint firstItem="35R-IE-Vom" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="uli-qC-hwd"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="aXi-uk-ZiF">
-                        <leftBarButtonItems>
-                            <barButtonItem title="Completed" id="PMs-Ci-dxR">
-                                <connections>
-                                    <action selector="completedActionButton:" destination="BYZ-38-t0r" id="Czk-L3-UsM"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="All Task" id="Rdg-J1-Nna">
-                                <connections>
-                                    <action selector="allTaskActionButton:" destination="BYZ-38-t0r" id="rXZ-z1-Ceb"/>
-                                </connections>
-                            </barButtonItem>
-                        </leftBarButtonItems>
+                        <barButtonItem key="leftBarButtonItem" title="All Task" id="Rdg-J1-Nna">
+                            <connections>
+                                <action selector="allTaskActionButton:" destination="BYZ-38-t0r" id="rXZ-z1-Ceb"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="+" id="9qa-zq-wpx">
                             <connections>
                                 <segue destination="pcE-9y-jBj" kind="show" id="1uE-cK-9Mx"/>
@@ -109,7 +125,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="942" y="133"/>
+            <point key="canvasLocation" x="941.60000000000002" y="132.68365817091455"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="AzH-xc-QxS">
@@ -141,23 +157,40 @@
                                 <rect key="frame" x="130" y="262" width="25" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </stackView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add a task" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ec1-B1-ADV">
-                                <rect key="frame" x="16" y="262" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add a task" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ec1-B1-ADV">
+                                <rect key="frame" x="16" y="319" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ceY-sX-XMb">
-                                <rect key="frame" x="16" y="457" width="343" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ceY-sX-XMb">
+                                <rect key="frame" x="16" y="379" width="343" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Add"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="addActionButton:" destination="pcE-9y-jBj" eventType="touchUpInside" id="3XW-p8-dlm"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ceY-sX-XMb" firstAttribute="top" secondItem="Ec1-B1-ADV" secondAttribute="bottom" constant="30" id="EJB-Zs-52e"/>
+                            <constraint firstItem="pDI-dt-fj0" firstAttribute="trailing" secondItem="Ec1-B1-ADV" secondAttribute="trailing" constant="16" id="isr-nU-pxe"/>
+                            <constraint firstItem="Ec1-B1-ADV" firstAttribute="centerX" secondItem="xkK-rf-gU7" secondAttribute="centerX" id="mrf-Av-wXb"/>
+                            <constraint firstItem="pDI-dt-fj0" firstAttribute="trailing" secondItem="ceY-sX-XMb" secondAttribute="trailing" constant="16" id="oyg-Wg-dfN"/>
+                            <constraint firstItem="Ec1-B1-ADV" firstAttribute="centerY" secondItem="xkK-rf-gU7" secondAttribute="centerY" id="qje-Fn-s31"/>
+                            <constraint firstItem="Ec1-B1-ADV" firstAttribute="leading" secondItem="pDI-dt-fj0" secondAttribute="leading" constant="16" id="qzQ-hv-Vuz"/>
+                            <constraint firstItem="ceY-sX-XMb" firstAttribute="leading" secondItem="pDI-dt-fj0" secondAttribute="leading" constant="16" id="zdy-Fg-IW5"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="pDI-dt-fj0"/>
                     </view>
                     <connections>
