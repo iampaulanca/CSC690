@@ -128,9 +128,8 @@ extension ViewController : AddTask {
 extension ViewController : ChangeButton {
     func changeButton(checkBox: Bool, index: Int) {
         tasks[index].checked = checkBox
-       
         tableView.reloadData()
-         PersistenceService.saveContext()
+        PersistenceService.saveContext()
     }
 }
 
